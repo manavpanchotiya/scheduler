@@ -12,13 +12,17 @@ test("useVisualMode initializes with the initial mode", () => {
   act(() => result.current.transition(SECOND));
   expect(result.current.mode).toBe(SECOND);
 
-  act(() => result.current.transition(THIRD));
+  act(() => result.current.transition(THIRD, true));
   expect(result.current.mode).toBe(THIRD);
-
-  act(() => result.current.back());
-  expect(result.current.mode).toBe(SECOND);
 
   act(() => result.current.back());
   expect(result.current.mode).toBe(FIRST);
 
+});
+
+test("useVisual should not return to previous mode if already at initial", () => {
+  const { result } = renderHook(() => useVisualMode(FIRST));
+
+  act(() => result.current.back());
+  expect(result.current.mode).toBe(FIRST);
 });
