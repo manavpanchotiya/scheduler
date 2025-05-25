@@ -1,4 +1,5 @@
 import "./InterviewerList.scss";
+import PropTypes from "prop-types";
 
 import InterviewerListItem from "./InterviewerListItem";
 
@@ -15,6 +16,10 @@ function InterviewerList(props) {
       />
     );
   });
+
+  InterviewerList.PropTypes = {
+    interviewers: PropTypes.array.isRequired
+  };
 
   return (
     <section className="interviewers">
