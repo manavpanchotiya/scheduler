@@ -48,7 +48,6 @@ function destroy() {
     .catch(error => transition(ERROR_DELETE, true));
 }
 
-
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
